@@ -9,7 +9,12 @@ async function bootstrap() {
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist:true,
-      forbidNonWhitelisted:true
+      forbidNonWhitelisted:true,
+      /**Tansforma la innformacion que viene por http segun los decoradores  */
+      transform:true,
+      transformOptions:{
+        enableImplicitConversion:true
+      }
     })
   )
   await app.listen(3000);
